@@ -1,5 +1,15 @@
-import { obtenerSuperheroePorId, obtenerSuperheroesMayoresDe30, buscarSuperheroesPorAtributo } from "../services/superheroesServices.mjs";
+import { obtenerSuperheroePorId, obtenerSuperheroesMayoresDe30, buscarSuperheroesPorAtributo, obtenerTodosLosSuperheroes } from "../services/superheroesServices.mjs";
 import { renderizarListaSuperheroes, renderizarSuperheroe } from "../views/responsiveView.mjs";
+
+export function mostrarInicioController(req, res) {
+    res.send('NodeJS - Sprint 1 - TP4');
+}
+
+export function obtenerTodosLosSuperheroesController(req, res) {
+    const superheroes = obtenerTodosLosSuperheroes();
+
+    res.send(renderizarListaSuperheroes(superheroes));
+}
 
 export function obtenerSuperheroePorIdController(req, res) {
     const { id } = req.params;
